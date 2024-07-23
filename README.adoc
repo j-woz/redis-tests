@@ -30,6 +30,13 @@ Get the login node IP address via `ip addr`.  E.g. `10.201.0.56` . (There are ma
 $ nice -n 19 redis/src/redis-server
 ----
 
+For a persistent password:
+
+. Edit `redis/redis.conf`
+. Change the `requirepass` field to the password
+
+For a non-persistent password:
+
 Set a password by connecting from `localhost`.
 
 ----
