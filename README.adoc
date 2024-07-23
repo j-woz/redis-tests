@@ -17,6 +17,8 @@ The idea here is that the user installs a personal Redis.  Then for each run:
 ----
 $ git clone git@github.com:redis/redis.git
 $ cd redis
+# Switch to a stable branch tag:
+$ git checkout 7.2.0
 $ nice make
 ----
 
