@@ -1,1 +1,16 @@
-# redis-tests
+= redis-tests
+
+Prototyping Redis functionality on relevant computing systems for ExaEpi.
+
+== Polaris case
+
+The idea here is that the user installs a personal Redis.  Then for each run:
+
+. Launches the DB server on the login node
+. Launches the compute jobs (via Merlin?), all of which have access to the DB
+. When the compute job is completing, one of the jobs will use the Redis client to issue the shutdown command
+. On an error, the user will have to interactively shutdown the DB
+. The data will be persisted for future runs or analysis
+
+=== Installation
+
