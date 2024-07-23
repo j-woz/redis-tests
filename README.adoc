@@ -14,3 +14,45 @@ The idea here is that the user installs a personal Redis.  Then for each run:
 
 === Installation
 
+----
+$ git clone git@github.com:redis/redis.git
+$ cd redis
+$ nice make
+----
+
+=== Run
+
+Get the login node IP address via `ip addr`.  E.g. `10.201.0.56` . (There are many NICs, we could write a script to make this easier.)
+
+----
+$ nice -n 19 redis/src/redis-server
+----
+
+Set a password by connecting from `localhost`.
+
+----
+$ redis/src/redis-cli
+> config set requirepass PASSWORD
+----
+
+Terminate with Ctrl-C or issue `shutdown` from client.
+
+=== Client access
+
+Start interactive Polaris session with something like:
+
+----
+$ qsub -I -A PROJECT -q debug -l 'select=1:system=polaris' -l 'walltime=00:60:00' -l 'filesystems=home:eagle:grand' -- /usr/bin/env 'SHLVL=0' zsh -l
+----
+
+Run the interactive client with the server IP address and authenticate:
+
+----
+$ redis/src/redis-cli -h 10.201.0.56
+> auth PASSWORD
+# Now you can issue arbitrary Redis queries
+> set x 42
+OK
+> get x
+"42"
+----
