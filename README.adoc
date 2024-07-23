@@ -27,7 +27,7 @@ $ nice make
 Get the login node IP address via `ip addr`.  E.g. `10.201.0.56` . (There are many NICs, we could write a script to make this easier.)
 
 ----
-$ nice -n 19 redis/src/redis-server redis.conf
+$ nice -n 19 redis/src/redis-server redis/redis.conf
 ----
 
 For a persistent password:
