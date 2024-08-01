@@ -68,13 +68,14 @@ OK
 
 === Use of Wozniak's installation on Polaris
 
-. Add to `PATH`: +
-`~wozniak/Public/sfw/redis/bin`
+. Add to `PATH`: `~wozniak/Public/sfw/redis/bin`
 . Copy `redis.conf` to an editable location:
 +
 ----
 $ cp ~wozniak/Public/sfw/redis/examples/redis.conf /path/to/redis.conf
 ----
-. Edit `redis.conf` to change the value of `dbfilename` to a writable filename.
+. Edit `redis.conf` to:
+.. change the value of `dir` to a writeable directory
+.. change the value of `dbfilename` to a writable filename in `dir`
 . Run `redis-server /path/to/redis.conf`
-. When you shutdown the server, the state is saved in your `dbfilename` location.
+. When you shutdown the server, the state is saved in your `dir/dbfilename` location.
